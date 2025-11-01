@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import Key from './Key';
 import { calculate } from '../lib/api';
 
-const OPERATORS = ['+', '-', '×', '÷', '*', '/','%','^'];
+const OPERATORS = ['+', '-', '×', '÷', '*', '/', '%', '^'];
 
 function toApiExpression(expr: string) {
   return expr.replace(/×/g, '*').replace(/÷/g, '/');
@@ -28,7 +28,7 @@ export default function Calculator() {
     if (val === ')') {
       const opens = (expression.match(/\(/g) || []).length;
       const closes = (expression.match(/\)/g) || []).length;
-      if (closes.length >= opens) return;
+      if (closes >= opens) return;
     }
     setExpression((e) => (e + val).replace(/\s+/g, ''));
   }
@@ -76,15 +76,17 @@ export default function Calculator() {
   }, [expression, result, error]);
 
   const keys = [
-    '(', ')', '%', 'C',
+    '(', ')', '⌫', 'C',
     '7', '8', '9', '÷',
     '4', '5', '6', '×',
     '1', '2', '3', '-',
-    '0', '.', '^', '+',
+    '0', '.', '%', '+',
+    '^'
   ];
 
   function onPress(label: string) {
     if (label === 'C') return clearAll();
+    if (label === '⌫') return backspace();
     append(label);
   }
 
