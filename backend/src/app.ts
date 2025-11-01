@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { isValidExpression, evaluateExpression } from './evaluator.js';
+import { isValidExpression, evaluateExpression } from './evaluator';
 
 const app = express();
 
