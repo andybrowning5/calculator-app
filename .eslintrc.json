@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "env": {
+    "es2022": true,
+    "node": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "overrides": [
+    {
+      "files": ["frontend/**/*.{ts,tsx}"]
+    },
+    {
+      "files": ["backend/**/*.ts"],
+      "env": { "node": true }
+    }
+  ],
+  "extends": ["eslint:recommended"]
+}
