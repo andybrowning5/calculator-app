@@ -1,4 +1,7 @@
 # Calculator App
+**This Repo was entirely generated in one shot by a team of AI Agents connected with GitHubs MCP server.**
+
+
 
 Monorepo with an elegant React frontend and a functional Node/Express backend.
 
